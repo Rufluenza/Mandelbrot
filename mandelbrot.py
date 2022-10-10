@@ -1,12 +1,11 @@
-from matplotlib import axes
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import os
-import os.path as path
 
 from sys import platform
 
+# getting the login so that FFmpeg can be used on all platforms
 os.login = os.getlogin()
 if platform == "win32":
     plt.rcParams['animation.ffmpeg_path'] =(f'C:\\Users\\{os.login}\\Documents\\ffmpeg\\bin\\binffmpeg.exe')
@@ -35,16 +34,6 @@ def mandelbrot( h,w, maxit=100 ):
 
     return iteration
 
-# zoom in on the interesting part of the fractal
-# create the zoom effect by changing the coordinates in a loop
-
-# saving the images as a png file but zooming into the fractal ending with a interesting part of the fractal being x = -0.75, y = 0.1, width = 0.005, height = 0.005 but animated so it looks like a zoom effect
-# set saavwepath to the path where you want to save the images default is the current directory
-# use os.mkdir to create a directory to save the images in C:\\Users\\{os.login}\\Documents\\mandelbrot_video
-# first check if the directory exists with os.path.exists
-
-# here we are asking if the user wants to save the images or not
-# and we are also making sure that the user gets the directory right regardless of the operating system
 ask_save = input('Do you want to save the images? (y/n): ')
 ask_save = ask_save.capitalize()
 
